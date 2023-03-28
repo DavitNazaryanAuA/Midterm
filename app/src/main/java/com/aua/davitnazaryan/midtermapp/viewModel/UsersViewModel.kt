@@ -1,9 +1,7 @@
-package com.aua.davitnazaryan.midtermapp
+package com.aua.davitnazaryan.midtermapp.viewModel
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.aua.davitnazaryan.midtermapp.model.UsersResult
 import com.aua.davitnazaryan.midtermapp.repository.UserRepository
 import com.aua.davitnazaryan.midtermapp.util.Resource
@@ -43,9 +41,9 @@ class UsersViewModel(
             if (usersResult == null) {
                 usersResult = responseBody
             } else {
-                usersResult?.results?.addAll(responseBody.results)
+                usersResult!!.results.addAll(responseBody.results)
             }
         }
-        return Resource.Success(usersResult ?: response.body()!!)
+        return Resource.Success(usersResult!!)
     }
 }

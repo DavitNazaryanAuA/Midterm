@@ -10,4 +10,6 @@ data class User(
         val first: String,
         val last: String
     )
+
+    fun getFullName() = "${name.first} ${name.last}"
 }

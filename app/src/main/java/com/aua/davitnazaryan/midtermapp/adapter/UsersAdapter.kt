@@ -3,6 +3,7 @@ package com.aua.davitnazaryan.midtermapp.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -38,7 +39,8 @@ class UsersAdapter: RecyclerView.Adapter<UsersAdapter.UserViewHolder>() {
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
        val user: User = differ.currentList[position]
-        holder.itemView.apply {
-        }
+        holder.itemView.findViewById<TextView>(R.id.tvName).text = user.getFullName()
+        holder.itemView.findViewById<TextView>(R.id.tvEmail).text = user.email
+        holder.itemView.findViewById<TextView>(R.id.tvCountry).text = user.nat
     }
 }
